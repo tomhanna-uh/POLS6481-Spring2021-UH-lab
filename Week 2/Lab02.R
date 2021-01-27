@@ -1,6 +1,6 @@
 ##Clear memory##
 rm(list=ls())
-setwd("Your Working Directory Here")
+setwd("C:/R Studio Files/Teaching/POLS6481-Spring2021-UH-lab/Week 2")
 
 install.packages("car")
 library(car) ##For the influencePlot command##
