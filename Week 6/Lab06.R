@@ -1,12 +1,17 @@
-rm(list=ls())
+library(here)
 
 library(car)
 library(foreign)
-install.packages("lmtest"); library(lmtest)
-install.packages("sandwich"); library(sandwich)
 
-abdta<-read.dta("C:/abortions.dta")
-popdta<-read.dta("C:/populations.dta")
+# uncomment or install package manually if needed
+# install.packages("lmtest"); 
+library(lmtest)
+#uncomment or install package manually if needed
+# install.packages("sandwich"); 
+library(sandwich)
+
+abdta<-read.dta(here("data","abortions.dta"))
+popdta<-read.dta(here("data","populations.dta"))
 
 base<-lm(abortion~price+income+picket+funds, data=abdta);summary(base)
 avPlots(base, pch = 19)

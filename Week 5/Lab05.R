@@ -1,8 +1,8 @@
-rm(list=ls())
+library(here)
 install.packages("readstata13"); library(readstata13)
 library(car)
 options(scipen=999)
-tickets <- read.dta13("C:/speeding_tickets_text.dta")
+tickets <- read.dta13(here("data","speeding_tickets_text.dta"))
 complete <- subset(tickets, tickets$Amount!="NA")
 
 basic <-lm(Amount ~ Age + MPHover, data=complete); summary(basic)
@@ -37,4 +37,3 @@ sst<-sum((complete$Amount-mean(complete$Amount))^2) # total sum of squares
 sse<-sum((predict(dummies) - mean(complete$Amount))^2) # explained sum of squares
 linearHypothesis(dummies, c("MPHover=0", "Black=0", "Hispanic=0", "Female=0", "OutTown=0", "OutState=0", "StatePol=0"))
 
-rm(list=ls())

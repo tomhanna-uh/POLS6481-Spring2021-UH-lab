@@ -1,10 +1,13 @@
-##Clear memory, load libraries, and data##
-rm(list=ls())
+install.packages("here")
+library(here)
+##example of format for use of here
+## CEOdta<-read.dta(here("Week 2","CEOSAL1.DTA"))
+
 
 library(foreign) ##For loading Stata data##
 library(Hmisc) ##For labeling data##
 library(car) ##For avPlots##
-CAdta<-read.dta("C:/caschool.dta")
+CAdta<-read.dta(here("data","caschool.dta"))
 
 # Dropping Variables
 myvars <- names(CAdta) %in% c("district", "str", "testscr", "avginc", "el_pct", "expn_stu") 
@@ -70,5 +73,3 @@ denominator = (length(newdata$avginc)-1)*var(newdata$avginc)
 ratio = mse/denominator; ratio
 se = sqrt(ratio); se
 
-# Clean-up
-rm(list=ls())

@@ -1,8 +1,14 @@
+library(here)
+
 library(foreign) # For loading Stata data in
 library(car) # For VIF
-install.packages("stargazer")
+
+##Uncomment the following line if needed
+# install.packages("stargazer")
+
+
 library(stargazer)
-cadta<-read.dta("C:/caschool.dta")
+cadta<-read.dta(here("data","caschool.dta"))
 options(scipen = 999)
 options(digits=3)
 cor(cadta[c(15, 8, 9, 16, 12, 13, 14)])
@@ -56,4 +62,3 @@ vif(smalln)
 cor(newdata[c(11, 15, 8, 9, 16)])
 pairs(newdata[c(15, 8, 9, 16)], pch=19, cex=.5)
 
-rm(list=ls())
