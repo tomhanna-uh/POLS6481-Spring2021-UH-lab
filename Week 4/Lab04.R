@@ -16,16 +16,19 @@ cor(cadta[c(15, 8, 9, 16, 12, 13, 14)])
 pairs(cadta[c(15, 8, 9, 16)], pch=19, cex=.5)
 pairs(cadta[c(12, 13, 14)])
 
-base<-lm(testscr~avginc+el_pct, cadta); summary(base)
+base<-lm(testscr ~ avginc + el_pct, cadta); summary(base)
 mean(base$residuals)
 cor(cadta$el_pct, base$residuals); cor(cadta$avginc, base$residuals)
 cor(cadta$calw_pct, base$residuals); cor(cadta$meal_pct, base$residuals)
 
 baseplus1<-lm(testscr~avginc+el_pct+calw_pct, cadta); summary(baseplus1)
+
 baseplus2<-lm(testscr~avginc+el_pct+calw_pct+meal_pct, cadta); summary(baseplus2)
+
 cor(cadta[c(11, 15, 8, 9, 16)])
 
 vif(baseplus2)
+
 check <- lm(meal_pct~avginc+el_pct+calw_pct, cadta); summary(check)[8]
 
 final <- lm(testscr ~ avginc + el_pct + meal_pct, cadta); summary(final)
@@ -56,9 +59,11 @@ sst<-sum(devysq); sst
 mytable<-table(cadta$county,cadta$observat)
 margin.table(mytable,1)
 newdata <- subset(cadta, county=="Los Angeles" | county=="Orange" | county=="Ventura") 
+
 smalln<-lm(testscr~avginc+el_pct+meal_pct, data=newdata); summary(smalln)
 stargazer(final, smalln, type="text", title="", single.row=TRUE, omit.stat=c("f", "ser"))
 vif(smalln)
 cor(newdata[c(11, 15, 8, 9, 16)])
 pairs(newdata[c(15, 8, 9, 16)], pch=19, cex=.5)
 
+stargazer(final, smalln, title="", single.row=TRUE, omit.stat=c("f", "ser"))
