@@ -2,7 +2,7 @@
 rm(list=ls())
 setwd("C:/R Studio Files/Teaching/POLS6481-Spring2021-UH-lab/Week 2")
 
-install.packages("car")
+# install.packages("car")
 library(car) ##For the influencePlot command##
 library(foreign) ##For loading a Stata dataset##
 
@@ -28,9 +28,19 @@ reg2<-lm(sorted$lsalary~sorted$roe); summary(reg2)
 
 plot(sorted$roe, sorted$lsalary, pch=19)
 abline(reg2, col="red")
+
+
 a<-predict(reg2, interval="confidence")
+
+
+
 lines(sorted$roe,a[,2], lty=5)
+
+
+
 lines(sorted$roe,a[,3], lty=5) 
+
+
 
 ##Examine residuals##
 reg2.res<-resid(reg2)
