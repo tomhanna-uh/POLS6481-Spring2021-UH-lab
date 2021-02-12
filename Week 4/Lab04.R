@@ -45,6 +45,9 @@ summary(final$residuals)
 sd(final$residuals)
 hist(final$residuals) 
 
+summary(base)
+stargazer(base)
+
 # Model Fit
 final.res<-resid(final)
 resf<-final.res^2
@@ -61,7 +64,9 @@ margin.table(mytable,1)
 newdata <- subset(cadta, county=="Los Angeles" | county=="Orange" | county=="Ventura") 
 
 smalln<-lm(testscr~avginc+el_pct+meal_pct, data=newdata); summary(smalln)
+
 stargazer(final, smalln, type="text", title="", single.row=TRUE, omit.stat=c("f", "ser"))
+
 vif(smalln)
 cor(newdata[c(11, 15, 8, 9, 16)])
 pairs(newdata[c(15, 8, 9, 16)], pch=19, cex=.5)
