@@ -23,6 +23,7 @@ plot(abdta$income, abdta$uhat); abline(h=0, col="red")
 # Part 1: Diagnosing Heteroskedasticity
 abdta$uhatsq<-abdta$uhat^2
 bp<-lm(abdta$uhatsq~abdta$price+abdta$income+abdta$picket+abdta$funds); summary(bp)
+
 # LM test (optional)
 rsq <- summary(bp)$r.squared
 nrsq = NROW(abdta$uhat)*rsq
