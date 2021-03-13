@@ -86,3 +86,5 @@ log.mod <- lm(lnabortion ~ price + income + picket + funds, data=mdata); summary
 plot(log.mod$fitted.values, log.mod$residuals, pch = 19); abline(h=0, col = "red")
 plot(mdata$pop1990k, log.mod$residuals, pch = 19); abline(h=0, col = "red")
 bptest(log.mod)
+
+#this is a comment to force a change in Github
