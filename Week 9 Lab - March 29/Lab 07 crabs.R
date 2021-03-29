@@ -1,6 +1,7 @@
-rm(list=ls())
+library(here)
+library(foreign); library(car)
 
-crab <- read.table("C:/crab.txt")
+crab <- read.table(here("data","crab.txt"))
 colnames(crab)=c("Obs","C","S","W","Wt","Sa")
 crab=crab[,-1] #removes "Obs" column
 
@@ -49,3 +50,6 @@ options(scipen=999); round(r.est, digits=5)
 
 library(car)
 robvar<-hccm(pmodel)
+
+library(stargazer)
+stargazer(r.est)

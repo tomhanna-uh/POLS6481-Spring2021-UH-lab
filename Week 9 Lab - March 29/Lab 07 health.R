@@ -1,9 +1,32 @@
+library(here)
 library(foreign); library(car)
-health <- read.dta("C:/OECD_health.dta")
+
+health <- read.dta(here("data","OECD_health.dta"))
+
+plot(life_expect ~ health_expend, data = health, pch=19)
+abline(lm(health$life_expect ~ health$health_expend))
+
 subset <- subset(health, country != "South Africa")
 
-plot(life_expect ~ health_expend, subset, pch=19)
+plot(life_expect ~ health_expend, data = subset, pch=19)
 abline(lm(subset$life_expect ~ subset$health_expend))
+
+#This plots the same data using the GGPLOT2 package; install ggplot2 if needed
+#install.packages("ggplot2")
+library(ggplot2)
+plot <- ggplot(data=subset,aes(life_expect,health_expend)) +
+    geom_point() +
+    geom_smooth(method="lm")
+plot + ggtitle("Plot of Life Expectancy by Health Expenditure") +
+    xlab("Health Expenditure") +
+    ylab("Life Expectancy")
+
+plot2 <- ggplot(data=subset,aes(life_expect,health_expend)) +
+    geom_point() +
+    geom_smooth(method="auto")
+plot2 + ggtitle("Plot of Life Expectancy by Health Expenditure") +
+    xlab("Health Expenditure") +
+    ylab("Life Expectancy")
 
 par(mfrow=c(1,2))
 hist(subset$life_expect, freq = FALSE)
@@ -14,7 +37,7 @@ hist(subset$health_expend, freq = FALSE)
 qqnorm(subset$health_expend); qqline(subset$health_expend)
 par(mfrow=c(1,1))
 
-plot(log(life_expect) ~ log(health_expend), subset, pch=19)
+plot(log(life_expect) ~ log(health_expend), data = subset, pch=19)
 abline(lm(log(subset$life_expect) ~ log(subset$health_expend)))
 
 subset$health.1k = subset$health_expend/1000
