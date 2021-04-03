@@ -9,9 +9,27 @@ names(charity)
 q1 <- lm(gift ~ mailsyear, data = charity)
 summary(q1)
 
+#Problem 1 - Test B1 = 1
+
 #Just the regression problem 2
 q2 <- lm(gift ~ mailsyear + avggift + propresp, data = charity)
 summary(q2)
+
+#Problem 2 - Test B1 = 1
+
+#Problem 2 - F Test avggift  and propresp  B1 and B2 = 0
+
+
+#Problem 3 - Heteroskedasticity
+
+#Plot residuals against fitted values
+
+#Test for heteroskedasticity
+
+#Re-estimate q2 using FGLS
+
+
+#Problem 4 - Reestimate q2 with robust standard errors
 
 
 ##Part 2
@@ -32,4 +50,16 @@ summary(q6)
 q7 <- lm(wage ~ looks + educ + exper + female, data = beauty)
 summary(q7)
 
+
+#q 7.5
+
+#q8 Heteroskedasticity
+
+#plot residuals against regressors and/or fitted values
+
+#Test for heteroskedasticity
+
+#Re-estimate q7 with FGLS
+
+#Re-estimate q7 with robust standard errors
 
