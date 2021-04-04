@@ -1,10 +1,9 @@
-rm(list=ls())
-
+library(here)
 library(stargazer)
 library(car)
 library(foreign)
 
-data <- read.dta("C:/conf06.dta")
+data <- read.dta(here("data","conf06.dta"))
 conf06 <- subset(data, data$nominee!="ALITO")
 vars <- c("vote", "nominee", "sameprty", "qual", "lackqual", "EuclDist2", "strngprs")
 conf <- conf06[vars]
@@ -98,7 +97,9 @@ phat.p <- predict(myprobit, type="response"); clas.p <- ifelse(phat.p >= .5, c(1
 correct.p <- table(clas.p, conf$vote); correct.p
 
 logit.base <- glm(numvote ~ 1, family = binomial(link = "logit"), data = conf); summary(logit.base)
-phat.l.base <- predict(logit.base, type="response"); clas.l.base <- ifelse(phat.l.base >= .5, c(1),c(0))
+
+phat.l.base <- predict(logit.base, type="response")
+clas.l.base <- ifelse(phat.l.base >= .5, c(1),c(0))
 table(clas.l.base, conf$vote)
 
 probit.base <- glm(numvote ~ 1, family = binomial(link = "probit"), data = conf); summary(probit.base)
