@@ -12,7 +12,7 @@ abline(lm(Sa ~ W))
 lmodel=lm(Sa ~ W); summary(lmodel)
 # lmodel=glm(Sa ~ 1+ W, family=gaussian); summary(lmodel)
 
-pmodel=glm(Sa ~ 1+ W, family=poisson(link=log))
+pmodel <- glm(Sa ~ 1+ W, family=poisson(link=log))
 summary(pmodel)
 
 print=data.frame(crab,pred=pmodel$fitted)

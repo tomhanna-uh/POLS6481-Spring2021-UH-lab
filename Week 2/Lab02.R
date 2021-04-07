@@ -1,12 +1,9 @@
-##Clear memory##
-rm(list=ls())
-setwd("C:/R Studio Files/Teaching/POLS6481-Spring2021-UH-lab/Week 2")
-
+library(here)
 # install.packages("car")
 library(car) ##For the influencePlot command##
 library(foreign) ##For loading a Stata dataset##
 
-CEOdta<-read.dta("CEOSAL1.DTA")
+CEOdta<-read.dta(here("data","CEOSAL1.DTA"))
 sorted <- CEOdta[order(CEOdta$roe),]
 
 plot(sorted$roe, sorted$salary, pch=19)
