@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr, amsfonts, amsmath, amssymb, graphicx, color, fullpage}
+\pagestyle{fancy}
+\usepackage{longtable}
+\usepackage{fourier}
+\usepackage[lf]{venturis}
+\usepackage[T1]{fontenc}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\setlength\parindent{0pt}
+\usepackage{amsfonts, amsmath, amssymb, bm} %Math fonts and symbols
+\usepackage{dcolumn, multirow} % decimal-aligned columns, multi-row cells
+\usepackage{graphicx} % graphics commands
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[margin=1in]{geometry} % sets page layout
+\usepackage{setspace}% allows toggling of double/single-spacing
+\usepackage{verbatim}% defines environment for un-evaluated code
+\usepackage{rotating}% defines commands for rotating text and floats
+\usepackage{natbib}% defines citation commands and environments.
+\usepackage{url}
+\usepackage{caption}
+\usepackage{endnotes}
+\usepackage{psfrag}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage[pdftex,
+            pdfauthor={Tom Hanna},
+            pdftitle={The Title},
+            pdfsubject={The Subject},
+            pdfkeywords={Some Keywords},
+            pdfcreator={TeXstudio}]{hyperref}
+\usepackage{outlines}
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\Roman*)}
+\setlist[enumerate,2]{label=\Alph*)}
+\setlist[enumerate,3]{label=\roman*)}
+\setlist[enumerate,4]{label=\alph*)}
+
+\setlength\parindent{0pt}
+\setlength{\headsep}{0.2in}
+
+\begin{document}
+	\lhead{POLS 6481: Spring 2021}
+	\chead{Lab 9 Questions}
+	\rhead{Due April 20}
+	
+	
+
+	
+	{\textcolor{white}.}
+	
+
+	
+	\section*{Questions}
+	
+	\begin{enumerate}[label=\arabic*)]
+	\item \textbf{Line 19} presents an alternate way of plotting the log of a variable. Looking at line 19 and its output compared to line 18, what might be a problem with using this method for presentation?  (\textit{Hint: if you don't see the issue, also consider the output from line 17.}) 
+	\item \textbf{In line 30}, I introduce a new R function to handle something we've been doing manually. Open the help file for the new function. Copy and paste the definition for any of the function arguments that look interesting. (The arguments are the things inside the parentheses when you call the function.)
+	\item I've included a graph of some polynomial patterns in the \textbf{Additional Resources} folder/directory. If you have a scatterplot that seems to indicate the effect changes direction twice, what degree of polynomial or name of function would this be? If it changes direction three times?
+	\item Why would a quadratic (or other polynomial) model introduce multicollinearity?
+	\item Export the final plot from lines 80-83 and insert it here.
+	\item - 9) Insert your results for the marginal effects from Page 6 of the worksheet. 
+	
+	\end{enumerate}
+	
+	\begin{enumerate}[label=\arabic*)]
+	\setcounter{enumi}{9}
+	\item Read the last few lines of the worksheet and indicate you have the information filed for future reference. 
+	\end{enumerate}
+	
+	\begin{itemize}[label=Extra Credit]
+	\item Take a look at the help file for the new function introduced in line 30, \textit{source}, and tell me how you would change the code to use the \textit{chdir} argument instead of \textit{here} to load this file. Note: this would be useful to you if you are using someone else's code that didn't use \textit{here}, but it won't actually make your code useful for someone else. 	
+	\end{itemize}
+	
+
+
+\end{document}
