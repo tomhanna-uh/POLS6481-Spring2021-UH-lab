@@ -53,3 +53,5 @@ robvar<-hccm(pmodel)
 
 library(stargazer)
 stargazer(r.est)
+
+plot(crab$W, lmodel$residuals, pch=19)
