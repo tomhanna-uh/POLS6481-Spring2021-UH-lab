@@ -28,6 +28,7 @@ plot(oecd$growth1, oecd$EMPLOY, pch=19, cex=.75); abline(linmod, col="red", lwd=
 qqnorm(linmod$residuals)
 plot(oecd$growth1, linmod$residuals, pch=19, cex=.5); abline(h=0, col = "red")
 source(here("other scripts","white-test.r"))
+source("~/POLS6481-Spring2021-UH-lab/Other Scripts/white-test.r", chdir = FALSE)
 white.test(linmod)
 resettest(linmod)
 
