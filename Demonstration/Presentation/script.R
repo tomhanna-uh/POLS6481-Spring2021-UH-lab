@@ -6,8 +6,10 @@ library(plm) #For plm command  --- if needed install.packages("plm")
 library(pglm)
 library(pcse) #For panel corrected standard errors -- if needed install.packages("pcse")
 
-#This is using data on non-democratic nations involvement in Militarized Interstate Disputes (MIDS), the data is from the Correlates of War dataset. Additionally, 
-#there are variables from the Varieties of Democracy (VDEM) project and from Jeff Colgan's Revolutionary Leader's database. This is unbalanced panel data, so
+#This is using data on non-democratic nations involvement in Militarized Interstate Disputes
+#(MIDS), the data is from the Correlates of War dataset. Additionally, 
+#there are variables from the Varieties of Democracy (VDEM) project and from Jeff Colgan's
+#Revolutionary Leader's database. This is unbalanced panel data, so
 #I won't be using the PLM package. 
 
 library(readr)
